@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScriptの練習</title>
+    </head>
+    
+    <body>
+        <script>
+        class Animal {
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        
+        class Cat extends Animal {
+            constructor(name,age,type) {
+                super(name,age);
+                this.type = type;
+            }
+            
+            speak() {
+                console.log(this.name + "が「にゃーん」と鳴きました！")
+            }
+        }
+       
+        const cat = new Cat("タマ", 3, "シャム");
+        console.log(cat);
+    
+        cat.speak();
+        
+        // class Character {
+        //     constructor(name,hp) {
+        //         this.name = name;
+        //         this.hp = hp;
+        //     }
+            
+        //     attack() {
+        //     console.log(this.name + "の攻撃！");
+        //     }
+        // }
+        
+        
+        // class Hero extends Character {
+        //     constructor(name,hp,exp){
+        //         super(name,hp);
+        //         this.exp = exp;
+        //     }
+        //     control() {}
+        //     superAttack() {}
+        //     speak() {}
+        // }
+        
+        // class Enemy extends Character {
+        //     dorpItem() {}
+        //     getPoint() {}
+        // }
+        
+        // const hero = new Hero("主人公",100,10);
+        // const enemy = new Enemy("敵",10);
+        
+        // hero.attack();
+        // enemy.attack();
+        
+        // console.log(hero)
+        
+        
+        
+        // class Animal {
+        //     constructor(name,age,type) {
+        //         this.name = name;
+        //         this.age = age;
+        //         this.type = type;
+        //     }
+            
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        
+        // const dog = new Animal("犬", 8, "チワワ");
+        
+        // console.log(dog.getName());
+        
+
+        // const user_name = prompt("名前を入力してください");
+        // const user_tell = prompt("電話番号を入力してください")
+        
+        // const user = {}
+        
+        // user.name = user_name;
+        // user.tell = user_tell;
+        
+        // console.log(user);
+        
+        
+        
+        // const obj = {
+        //     getThis1: function() { return this },
+        //     getThis2: () => this
+        // };
+        
+        // console.log(obj.getThis1());
+        // console.log(obj.getThis2());
+        
+        
+        // const user = {
+        //     name: "太郎",
+        //     age: 30,
+        //     area: "東京",
+            
+        //     getName: function() {
+        //         console.log(this.name);
+        //     }
+        // }
+        
+        // user.getName();
+        
+        
+        // const Dollar = 108;
+        // const getDollarToYen = (number) => {
+        //     return number*Dollar;
+        // }
+        
+        // while (true) {
+        //     const money = prompt("ドルを入力");
+        //     if (money) {
+        //         console.log(getDollarToYen(money) + "円です")
+        //     } else break;
+        // }
+        
+        
+        // const products = ['テレビ','冷蔵庫','机','スマホ','本棚','椅子','テーブル'];
+        // const search = (items, target) => {
+        //     const result = items.filter(ite => ite === target);
+        //     if(result.length) {
+        //     return '商品が見つかりました！';
+        //     } else {
+        //     return 'お探しの商品は見つかりませんでした';
+        //     }
+        // }
+        // console.log(search(products, 'スマホ'));
+        // let user = [["田中一郎",30,"東京都"]];
+        // output(user);
+        // user.push(["伊藤花子",23,"音楽鑑賞"]);
+        // output(user);
+        // user.push(["木村涼子",18,"ウォーキング"]);
+        // output(user);
+        
+        // function output(array) {
+        //     for(let i=0; i<array.length;i++) {
+        //         console.log("名前："+ user[i][0]);
+        //         console.log("年齢："+ user[i][1]);
+        //         console.log("趣味："+ user[i][2]);
+        //         console.log("-----------------------");
+        //     }
+        // }
+        // let enemy = 10;
+        // let command;
+        // let random;
+        
+        // while(true) {
+        //     command = prompt("敵が現れた！（【1】攻撃　【2】逃げる");
+        //     random = Math.floor(Math.random()*10);
+            
+        //     if(command === "1") {
+        //         enemy = enemy- random;
+        //         console.log(random + "の攻撃！");
+        //         if(enemy <= 0) {
+        //             console.log("敵を倒した！");
+        //             break;
+        //         }
+        //         console.log("敵の体力の残り"+ enemy + "です");
+                
+        //     } else if(command == "2") {
+        //         console.log("無事に逃げました");
+        //         break;
+        //     }
+        // }
+        // console.log("ゲーム終了");
+        // for( let i=0; i<5; i++) {
+        //     console.log(i);
+        //     if(i == 3) break;
+        // }
+        // let state = true;
+        // while(state) {
+        //     let random = Math.floor(Math.random()*10);
+        //     if(random === 3) state = false;
+        //     console.log(random);
+        // }
+        // const myAnimal = "犬"
+        
+        // switch(myAnimal) {
+        //     case "犬":
+        //         console.log(myAnimal + "わんわん！");
+        //         break;
+        //     case "猫":
+        //         console.log(myAnimal + "にゃー");
+        //         break;
+        //     default:
+        //         console.log("該当なし");
+        // }
+        
+        // const user = ['田中太郎','佐藤一郎','山田次郎', '山田三郎', '伊藤花子'];
+        // user.forEach(name => {
+        //     switch(name) {
+        //         case "田中太郎":
+        //             console.log(name + "は営業部");
+        //             break;
+        //         case "山田次郎":
+        //             console.log(name + "製造部");
+        //             break;
+        //         default:
+        //             console.log(name + "特になし");
+        //     }
+        // })
+        </script>
+    </body>
+</html>

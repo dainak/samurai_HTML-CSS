@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>サンプルデモ</title>
+    <style>
+    .screenBlue {
+      height: 100vh;
+      color: #fff;
+      font-size: 5em;
+      text-align: center;
+      background-color: #88f;
+    }
+    .screenRed {
+      height: 100vh;
+      color: #fff;
+      font-size: 5em;
+      text-align: center;
+      background-color: #f88;
+    }
+    
+    .pagetop {
+      display: none;
+      padding: 40px 10px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+    <!--<style>-->
+    <!--    #dialog {-->
+    <!--        width: 250px;-->
+    <!--        padding: 30px 20px;-->
+    <!--        text-align: center;-->
+    <!--        border: 1px solid #aaa;-->
+    <!--        box-shadow: 2px 2px 4px #888;-->
+    <!--    }-->
+    <!--</style>-->
+  </head>
+
+ <body>
+     <h1>JavaScript関連のリポジトリ総数by GitHub</h1>
+     
+     <button id="btn">更新</button>
+     <div id="result"></div>
+     
+     <script>
+         const url = "https://api.github.com/search/repositories?q=javascript";
+         const btn = document.getElementById("btn");
+         const result = document.getElementById("result");
+         
+         const createResult = item => {
+             const h2 = document.createElement("h2");
+             
+             h2.textContent = "リポジトリの総数は、" + item.total_count + "件です！";
+             
+             result.appendChild(h2);
+         }
+         
+         btn.addEventListener("click", () => {
+             
+             result.innerHTML = "";
+             
+             fetch(url)
+             .then(data => data.json())
+             .then(data => createResult(data))
+         })
+     </script>
+<!--     <h1>JavaScript関連の最新記事 by Qiita</h1>-->
+     
+<!--     <button id="btn">更新</button>-->
+<!--     <ul id="list"></ul>-->
+     
+<!--    <script>    -->
+<!--        const url = 'https://qiita.com/api/v2/tags/javascript/items';-->
+<!--        const btn = document.getElementById('btn');-->
+<!--        const list = document.getElementById('list');-->
+        
+<!--        const createList = item => {-->
+<!--            const li = document.createElement("li");-->
+<!--            const a = document.createElement("a");-->
+            
+<!--            a.href = item.url;-->
+<!--            li.textContent = item.title;-->
+            
+<!--            a.appendChild(li);-->
+<!--            list.appendChild(a);-->
+<!--        }-->
+
+<!--    btn.addEventListener('click', () => {-->
+<!--        list.innerHTML = "";-->
+        
+<!--        fetch(url)-->
+<!--        .then(data => data.json())-->
+<!--        .then(data => {-->
+<!--            data.forEach(item => createList(item))-->
+<!--        })-->
+<!--    })-->
+<!--  </script>-->
+
+<!--</body>-->
+
+     
+     
+    <!--<div class="screenBlue">ここがトップページです</div>-->
+    <!--<div class="screenRed">2ページ目</div>-->
+    <!--<div class="screenBlue">3ページ目</div>-->
+    <!--<div class="screenRed">4ページ目</div>-->
+    <!--<div class="screenBlue">5ページ目</div>-->
+    
+    <!--<a class="pagetop" id="top">TOPに戻る</a>-->
+    
+    <!--<script>-->
+    <!--    const topLink = document.getElementById("top");-->
+    <!--    let scrollValue;-->
+        
+    <!--    window.addEventListener("scroll", () => {-->
+    <!--        scrollValue = document.scrollingElement.scrollTop;-->
+            
+    <!--        if (scrollValue >= 300) {-->
+    <!--            topLink.style.display = "inline";-->
+    <!--        } else if (scrollValue < 300) {-->
+    <!--            topLink.style.display = "none";-->
+    <!--        }-->
+    <!--    });-->
+        
+    <!--    topLink.addEventListener("click", () => {-->
+            
+    <!--        const timer = setInterval(() => {-->
+    <!--            if (scrollValue < 0) clearInterval(timer);-->
+                
+    <!--            document.scrollingElement.scrollTop = scrollValue;-->
+    <!--            scrollValue = scrollValue - 10;-->
+    <!--        });-->
+    <!--    });-->
+        
+    <!--</script>-->
+    
+    
+    
+    
+    
+    
+     <!--<form id="dialog" name="dialog">-->
+     <!--    <p>ボタンをクリックしてください</p>-->
+     <!--    <input type="button" name="yes" value="はい"/>-->
+     <!--    <input type="button" name="no" value="いいえ"/>-->
+     <!--    <input type="button" name="cancel" value="キャンセル"/>-->
+     <!--</form>-->
+     <!--<p id="info"></p>-->
+     
+     <!--<script>-->
+     <!--    const form = document.forms.dialog;-->
+     <!--    const info = document.getElementById("info")-->
+         
+     <!--    form.yes.addEventListener("click", () => {-->
+     <!--        info.textContent = "「はい」がクリックされました"-->
+     <!--    });-->
+     <!--    form.no.addEventListener("click", () => {-->
+     <!--        info.textContent = "「いいえ」がクリックされました"-->
+     <!--    });-->
+     <!--    form.cancel.addEventListener("click", () => {-->
+     <!--        info.textContent = "「キャンセル」がクリックされました"-->
+     <!--    });-->
+     <!--</script>-->
+     
+     
+     
+     
+     <!--<h1 id="text">こんにちは</h1>-->
+     
+     <!--<script>-->
+     <!--    const h1 = document.getElementById("text");-->
+     <!--    let count = 0;-->
+         
+     <!--    const timer = setInterval(() => {-->
+     <!--        h1.style.fontSize = count + "px";-->
+     <!--        count++;-->
+             
+     <!--        if(count >= 100) clearInterval(timer);-->
+     <!--    },10);-->
+     <!--</script>-->
+     
+     
+     <!--<textarea id="text" cols="50" rows="7"></textarea>-->
+     <!--<p id="count">0文字</p>-->
+     
+     <!--<script>-->
+     <!--    const text = document.getElementById("text");-->
+     <!--    const count = document.getElementById("count");-->
+         
+     <!--    text.addEventListener("keyup", () => {-->
+     <!--        const inputText = text.value.replace(/\n|\s/g,"");-->
+     <!--        count.textContent = inputText.length + "文字";-->
+     <!--    });-->
+     <!--</script>-->
+     
+     
+     <!--<form name="myForm">-->
+     <!--    <label>名前：<input type="text" name="name" /></label>-->
+     <!--    <br>-->
+     <!--    <label>メールアドレス：<input type="email" name="email" /></label>-->
+     <!--    <br>-->
+     <!--    <label>年齢：</label>-->
+     <!--    <input type="radio" name="age" value="20" />20代-->
+     <!--    <input type="radio" name="age" value="30" />30代-->
+     <!--    <input type="radio" name="age" value="40" />40代-->
+     <!--    <input type="radio" name="age" value="50" />50代-->
+         
+     <!--    <br><br>-->
+         
+     <!--    <label>普段使っているスマホは？</label><br>-->
+     <!--    <input type="checkbox" name="phone" value="iphon" />iPhone-->
+     <!--    <input type="checkbox" name="phone" value="android" />Android-->
+     <!--    <input type="checkbox" name="phone" value="flip-phone" />ガラケー-->
+     <!--    <input type="checkbox" name="phone" value="other" />その他-->
+     <!--</form>-->
+     <!--<br>-->
+     
+     <!--<button id="btn">実行</button>-->
+     
+     <!--<script>-->
+     <!--    const btn = document.getElementById("btn");-->
+     <!--    btn.addEventListener("click",  () => {-->
+     <!--        const form = document.forms.myForm;-->
+     <!--        console.log(form.name.value);-->
+     <!--        console.log(form.email.value);-->
+     <!--        console.log(form.age.value);-->
+             
+     <!--        form.phone.forEach(item => {-->
+     <!--            if(item.checked) console.log(item.value);-->
+     <!--        })-->
+     <!--    });-->
+     <!--</script>-->
+     
+     <!--<form name="myForm">-->
+     <!--    <label>利用したことのあるOSを選択してください</label><br/>-->
+     <!--    <input type="checkbox" name="os" value="windows" />Windows-->
+     <!--    <input type="checkbox" name="os" value="macos" />Mac OS-->
+     <!--    <input type="checkbox" name="os" value="linux" />Linux-->
+     <!--    <input type="checkbox" name="os" value="ios" />iOS-->
+     <!--    <input type="checkbox" name="os" value="android" />Android-->
+     <!--</form>-->
+     
+     <!--<button id="btn">実行</button>-->
+     
+     <!--<script>-->
+     <!--    const btn = document.getElementById("btn");-->
+     <!--    btn.addEventListener("click", () => {-->
+     <!--        const form = document.forms.myForm;-->
+     <!--        form.os.forEach(item => {-->
+     <!--            if(item.checked) console.log(item.value);-->
+     <!--        })-->
+     <!--    })-->
+     <!--</script>-->
+     <!--<form name="myForm">-->
+     <!--    <input type="radio" name="area" value="tokyo" />東京都-->
+     <!--    <input type="radio" name="area" value="aichi" />愛知県-->
+     <!--    <input type="radio" name="area" value="osaka" />大阪府-->
+     <!--</form>-->
+     
+     <!--<button id="btn">実行</button>-->
+     
+     <!--<script>-->
+     <!--   const btn = document.getElementById("btn");-->
+     <!--   btn.addEventListener("click", () => {-->
+     <!--       const form = document.forms.myForm;-->
+            
+     <!--       console.log(form.area.value);-->
+     <!--   });-->
+         
+     <!--</script>-->
+     <!--<form name="myForm">-->
+     <!--    <input type="text" name="myText">-->
+     <!--</form>-->
+     <!--<button id="btn">カウント</button>-->
+     
+     <!--<script>-->
+     <!--    const btn = document.getElementById("btn");-->
+     <!--    btn.addEventListener("click", () => {-->
+     <!--        const value = document.forms.myForm.myText.value;-->
+     <!--        console.log(value.length + "文字");-->
+     <!--    })-->
+     <!--</script>-->
+  <!--   <div></div>-->
+  <!--<h1>サンプルタイトル</h1>-->
+  <!--<h2>小見出し１</h2>-->
+  
+  <!--<script>-->
+  <!--  const div = document.querySelector("div");-->
+  <!--  const h1 = document.createElement("h1");-->
+    
+  <!--  h1.textContent = "これはh1要素です";-->
+    
+  <!--  div.appendChild(h1);-->
+  <!--  console.log(document.body);-->
+    
+    <!--//   const h2 = document.createElement("h2");-->
+    <!--//   h2.textContent = "小見出し２";-->
+    <!--//   document.body.appendChild(h2);-->
+  <!--</script>-->
+
+</body>
+
+</html>
